@@ -1,0 +1,25 @@
+<form #loginForm="ngForm" (ngSubmit)="onSubmit()" class="form-horizontal col-lg-6 col-lg-offset-3">
+  <fieldset>
+    <legend>Login</legend>
+    <div class="form-group">
+      <label for="inputEmail" class="col-lg-2 control-label">Email</label>
+      <div class="col-lg-10">
+        <input name="email" #email="ngModel" required [(ngModel)]="user.email" class="form-control" id="inputEmail">
+        <div [hidden]="email.valid||email.pristine" class="error">E-mail is required!</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputPassword" class="col-lg-2 control-label">Password</label>
+      <div class="col-lg-10">
+        <input type="password" #password="ngModel" name="password" required [(ngModel)]="user.password"
+               class="form-control" id="inputPassword">
+        <div [hidden]="password.valid||password.pristine" class="error">Password is required!</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-lg-10 col-lg-offset-2">
+        <button [disabled]="!loginForm.valid" class="btn btn-primary">Log in!</button>
+      </div>
+    </div>
+  </fieldset>
+</form>
