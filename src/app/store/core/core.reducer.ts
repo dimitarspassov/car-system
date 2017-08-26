@@ -17,9 +17,13 @@ function handleMessage(state, action) {
       }
     }
 
-    if (message) {
+    if (message && !result.success) {
       return Object.assign({}, state, {message});
     }
+
+    return Object.assign({}, state, {
+      message: null
+    });
   }
 
   return state;
