@@ -1,0 +1,64 @@
+<form #carForm="ngForm" (ngSubmit)="onSubmit()" class="form-horizontal col-lg-6 col-lg-offset-3">
+  <fieldset>
+    <legend>Add new car</legend>
+    <div class="form-group">
+      <label for="inputMake" class="col-lg-2 control-label">Make</label>
+      <div class="col-lg-10">
+        <input name="make" #make="ngModel" required [(ngModel)]="car.make" class="form-control" id="inputMake">
+        <div [hidden]="make.valid||make.pristine" class="error">Car make is required!</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputModel" class="col-lg-2 control-label">Model</label>
+      <div class="col-lg-10">
+        <input #model="ngModel" name="model" required [(ngModel)]="car.model"
+               class="form-control" id="inputModel">
+        <div [hidden]="model.valid||model.pristine" class="error">Car model is required!</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputYear" class="col-lg-2 control-label">Year of production</label>
+      <div class="col-lg-10">
+        <input type="number" name="year" #year="ngModel" required [(ngModel)]="car.year" class="form-control"
+               id="inputYear">
+        <div [hidden]="year.valid||year.pristine" class="error">Year of produciton is required!</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputEngine" class="col-lg-2 control-label">Engine</label>
+      <div class="col-lg-10">
+        <input name="engine" #engine="ngModel" required [(ngModel)]="car.engine" class="form-control"
+               id="inputEngine">
+        <div [hidden]="engine.valid||engine.pristine" class="error">Engine is required!</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputImage" class="col-lg-2 control-label">Image URL</label>
+      <div class="col-lg-10">
+        <input name="image" #image="ngModel" required [(ngModel)]="car.image" class="form-control"
+               id="inputImage">
+        <div [hidden]="image.valid||image.pristine" class="error">Image URL is required!</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputMileage" class="col-lg-2 control-label">Mileage</label>
+      <div class="col-lg-10">
+        <input name="mileage" #milleage="ngModel" [(ngModel)]="car.mileage" class="form-control"
+               id="inputMileage">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputPrice" class="col-lg-2 control-label">Price</label>
+      <div class="col-lg-10">
+        <input type="number" min="500" name="price" #price="ngModel" required [(ngModel)]="car.price" class="form-control"
+               id="inputPrice">
+        <div [hidden]="price.valid||price.pristine" class="error">Price is required!</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-lg-10 col-lg-offset-2">
+        <button [disabled]="!carForm.valid" class="btn btn-primary">Add car!</button>
+      </div>
+    </div>
+  </fieldset>
+</form>

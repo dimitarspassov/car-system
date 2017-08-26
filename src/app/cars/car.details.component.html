@@ -1,0 +1,109 @@
+<div class="container">
+  <h1>{{car.make}} {{car.model}}</h1>
+  <div class="row">
+    <div class="col-lg-7">
+      <img class="car-image-main" *ngIf="car.image" [src]="car.image"/>
+    </div>
+    <div class="col-lg-3">
+
+      <div class="comments well well-lg">
+        <div *ngFor="let review of reviews">
+          <div class="panel panel-default">
+            <div class="panel-heading"><b>{{review.user}}</b></div>
+            <div class="panel-heading">Rating: {{review.rating}}</div>
+            <div class="panel-body">
+              {{review.comment}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-2">
+      <form #reviewForm="ngForm" (ngSubmit)="onSubmit()">
+
+        <div class="form-group">
+          <label for="inputRating" class="col-lg-2 control-label">Rating: </label>
+          <div class="col-lg-10">
+            <select name="rating" #rating="ngModel" required [(ngModel)]="review.rating" class="form-control input-sm"
+                    id="inputRating">
+              <option *ngFor="let num of [1,2,3,4,5]" [value]="num">{{num}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputComment" class="col-lg-2 control-label">Comment:</label>
+          <div class="col-lg-10">
+            <textarea name="comment" #comment="ngModel" [(ngModel)]="review.comment" class="form-control" rows="3"
+                      id="inputComment"></textarea>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-lg-10 col-lg-offset-2">
+            <button [disabled]="!reviewForm.valid" type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </div>
+
+
+        <!--<div class="input-box">-->
+        <!--<label>Comment:</label>-->
+        <!--<textarea name="comment" #comment="ngModel" [(ngModel)]="review.comment"></textarea>-->
+        <!--</div>-->
+
+        <!--<input type="submit" [class]="reviewForm.valid ? 'btn-enabled' : 'btn-disabled'" -->
+        <!--value="Add!">-->
+      </form>
+    </div>
+  </div>
+
+
+  <div class="row car-details col-lg-7">
+    <div class="col-lg-5">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">Engine</h3>
+        </div>
+        <div class="panel-body">
+          {{car.engine}}
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-5">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">Likes</h3>
+        </div>
+        <div class="panel-body">
+          {{car.likes}}
+        </div>
+      </div>
+    </div>
+    <div class="btn-like col-lg-2">
+      <a (click)="like()" class="btn btn-warning">Like</a>
+    </div>
+  </div>
+
+  <div class="row car-details col-lg-7">
+    <div class="col-lg-5">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">Mileage</h3>
+        </div>
+        <div class="panel-body">
+          {{car.mileage}}
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-5">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h3 class="panel-title">Price</h3>
+        </div>
+        <div class="panel-body">
+          ${{car.price}}
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

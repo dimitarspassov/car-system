@@ -11,8 +11,9 @@ import {HttpModule} from '@angular/http';
 import {Router} from '@angular/router';
 import {AuthService} from './core/auth.service';
 import {config} from './core/config';
-import {IAppState} from './store/app.state';
+import {CarsModule} from './cars/cars.module';
 import {store} from './store/store';
+import {IAppState} from './store/app.state';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {store} from './store/store';
     HttpModule,
     CarRoutesModule,
     CoreModule,
-    UsersModule
+    UsersModule,
+    CarsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

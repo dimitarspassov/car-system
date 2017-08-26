@@ -1,0 +1,12 @@
+<div class="container">
+  <h1>My cars</h1>
+
+  <div class="col-lg-3 profile-card" *ngFor="let car of currentUserCars">
+    <div class="text-center">
+    <p>{{car.make}}</p>
+      <img src={{car.image}}>
+      <a (click)="delete(car.id)" class="btn btn-danger">Delete</a>
+    </div>
+  </div>
+
+</div>

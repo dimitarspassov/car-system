@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row"><h1>All cars</h1></div>
+
+  <div class="row col-lg-2">
+    <form class="form-horizontal">
+      <div class="form-group">
+        <div class="input-group">
+          <input [(ngModel)]="searchText" name="searchText" class="form-control"/>
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button" (click)="search()">Search</button>
+           </span>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="clearfix"></div>
+
+  <div class="row content">
+    <div class="col-lg-4 text-center card" *ngFor="let car of cars">
+      <img class="img-circle" [src]="car.image" width="340" height="300">
+      <h2>{{car.make}} {{car.model}}</h2>
+      <p><a class="btn btn-default" routerLink="/cars/details/{{car.id}}" role="button">Read more &raquo;</a></p>
+    </div>
+  </div>
+
+  <div class="row pagination-row text-center col-lg-4 col-lg-offset-4">
+  <ul class="pager">
+    <li [ngClass]="(page===1)?'previous disabled':'previous'"><a (click)="prevPage()">&larr; Prev</a></li>
+    <li [ngClass]="(cars.length===0 || cars.length<10)?'next disabled':'next'"><a (click)="nextPage()">Next &rarr;</a></li>
+  </ul>
+  </div>
+</div>
+
+

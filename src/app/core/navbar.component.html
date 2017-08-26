@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Car System</a>
+      <a class="navbar-brand" href="">Car System</a>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -21,7 +21,7 @@
         <li><a href="javascript:void(0)" (click)="logout()">Logout</a></li>
       </ul>
       <ul *ngIf="authenticated" class="nav navbar-nav navbar-right">
-        <li><a href="#">Hi, {{username}}!</a></li>
+        <li><a routerLink="/users/profile">Hi, {{username}}!</a></li>
       </ul>
     </div>
   </div>

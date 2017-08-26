@@ -1,0 +1,49 @@
+.pagination-row {
+  margin-top: 40px;
+}
+
+.content {
+  margin-top: 30px;
+}
+
+.card {
+  margin-bottom: 70px;
+}
+
+.car-image-main {
+  border: 2px solid black;
+  width: 650px;
+  height: 380px;
+
+}
+
+.car-details {
+  margin-top: 20px;
+}
+
+.btn-like a {
+  margin-top: 40%;
+  display: block;
+}
+
+.comments {
+  height: 380px;
+  overflow-y: scroll;
+}
+
+.comments .panel{
+  border:1px solid white !important;
+}
+
+.profile-card{
+  margin-bottom:40px;
+}
+
+.profile-card img{
+  display: block;
+  margin: 15px auto;
+  width: 150px;
+  height:90px;
+  border:1px solid white;
+  border-radius: 10px;
+}
